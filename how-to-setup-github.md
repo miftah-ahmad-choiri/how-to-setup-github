@@ -238,4 +238,42 @@ miftah-ahmad-choiri/how-to-setup-github                                         
 miftah-ahmad-choiri/skills-github-pages  My clone repository for github pages     public   about 2 hours ago 
 miftah-ahmad-choiri/skills-introduct...  My clone repository                      private  about 15 hours ago
 miftah-ahmad-choiri/miftah-ahmad-choiri  My personal repository to introducin...  public   about 16 hours ago
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ gh repo view --web
+Opening https://github.com/miftah-ahmad-choiri/how-to-setup-github in your browser.
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   how-to-setup-github.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git add how-to-setup-github.md 
+
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git commit -m "third commit"
+[main b9795e6] third commit
+ 1 file changed, 154 insertions(+), 1 deletion(-)
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git push -u origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 2.98 KiB | 2.98 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:miftah-ahmad-choiri/how-to-setup-github.git
+   9ec9931..b9795e6  main -> main
+branch 'main' set up to track 'origin/main'.
 ```
