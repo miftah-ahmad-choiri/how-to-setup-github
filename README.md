@@ -1,6 +1,6 @@
 # How to setup github for myPC
 
-```{ .sh .no-copy title="Output"}
+```sh
 $ ll
 total 4
 drwxr-xr-x  2 root root    6 Sep  8 07:48 downloads
