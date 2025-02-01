@@ -1,5 +1,16 @@
 # How to setup github for myPC
 
+```{ .sh .no-copy title="Output"}
+$ ll
+total 4
+drwxr-xr-x  2 root root    6 Sep  8 07:48 downloads
+drwxr-xr-x  2 root root    6 Sep  8 07:48 data
+drwxr-xr-x  2 root root    6 Sep  8 07:48 certs
+drwxr-xr-x  2 root root    6 Sep  8 07:48 auth
+drwxr-xr-x  6 root root   60 Sep  8 07:48 .
+```
+
+
 ```{ .git .copy title="mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING"}
 mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
 $ cat ~/.bash_profile
