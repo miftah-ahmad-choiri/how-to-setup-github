@@ -245,9 +245,14 @@ git push -u origin main
 ### Pull existing repository to local
 
 ```bash
-git pull main origin
+git pull origin main
 # or
 git pull git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
+```
+```bash
+git remote -v
+git remote set-url origin git@github.com:miftah-ahmad-choiri/miftah-ahmad-choiri.github.io.git
+git pull origin master
 ```
 
 ---
