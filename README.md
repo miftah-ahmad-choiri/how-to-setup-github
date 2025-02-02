@@ -28,6 +28,8 @@ This guide provides a structured walkthrough to set up GitHub on your PC using G
     - [Create and Switch to a New Branch](#create-and-switch-to-a-new-branch)
     - [Push the Branch to GitHub](#push-the-branch-to-github)
     - [Merge Changes into Main Branch](#merge-changes-into-main-branch)
+    - [Delete branch \& remote branch](#delete-branch--remote-branch)
+    - [Verify branch](#verify-branch)
   - [⚙️ 5. Using GitHub CLI (Optional)](#️-5-using-github-cli-optional)
     - [Verify GitHub CLI Installation](#verify-github-cli-installation)
     - [Authenticate with GitHub](#authenticate-with-github)
@@ -187,6 +189,19 @@ git push -u origin edit-readme
 git checkout main
 git merge edit-readme
 git push origin main
+```
+
+### Delete branch & remote branch
+```bash
+git branch -d edit-readme
+git branch -D edit-readme
+git push origin --delete edit-readme
+```
+
+### Verify branch
+```bash
+git branch
+git branch -r
 ```
 
 ---
