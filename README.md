@@ -99,6 +99,13 @@ Verify settings:
 git config --list
 ```
 
+For organization login:
+```bash
+git config --global user.name "Miftah-Choiri"
+git config --global user.email "miftah.choiri@ibm.com"
+git config -list
+```
+
 ---
 
 ## 🔐 2. Setting Up SSH for GitHub
@@ -141,6 +148,52 @@ ssh -T git@github.com
 
 Successful output:
 
+```bash
+Hi miftah-ahmad-choiri! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+For Organization ssh-connection:
+```bash
+ssh-keygen -t ed25519 -C "miftah.choiri@ibm.com"
+```
+```bash
+# save the key into different location
+Enter file in which to save the key (/c/Users/mifta/.ssh/id_ed25519): /c/Users/mifta/.ssh/id_ed25519_ibm
+```
+```bash
+ll ~/.ssh/
+vi ~/.ssh/config
+```
+```properties
+# Personal GitHub Account
+Host github.com-personal
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+# IBM GitHub Account
+Host github.com-ibm
+    HostName github.ibm.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_ibm
+```
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519_ibm
+```
+```bash
+Identity added: /c/Users/mifta/.ssh/id_ed25519_ibm (miftah.choiri@ibm.com)
+```
+Test connection to github.com & github.ibm.com
+```bash
+ssh -i ~/.ssh/id_ed25519_ibm -T git@github.ibm.com
+```
+```bash
+Hi Miftah-Choiri! You've successfully authenticated, but GitHub does not provide shell access.
+```
+```bash
+ssh -T git@github.com
+```
 ```bash
 Hi miftah-ahmad-choiri! You've successfully authenticated, but GitHub does not provide shell access.
 ```
