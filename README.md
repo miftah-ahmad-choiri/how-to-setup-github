@@ -57,12 +57,15 @@ This guide provides a structured walkthrough to set up GitHub on your PC using G
 ## 📄 0. Bash Profile Configuration
 
 ```bash
-$ cat ~/.bash_profile
+cat ~/.bash_profile
+```
+```properties
 export MY_PATH="/c/Users/mifta/OneDrive - IBM/IBM/LEARNING"
 alias mydir='cd "$MY_PATH"'
 export PATH=$PATH:/c/Program\ Files/GitHub\ CLI
-
-$ source ~/.bash_profile
+```
+```bash
+source ~/.bash_profile
 ```
 
 This configuration sets a custom path environment and alias for easier navigation and ensures the GitHub CLI is accessible from Git Bash.
@@ -195,17 +198,17 @@ git push origin main
 
 ### Move repo directory to new directory
 ```bash
-$ cp -r how-to-setup-github/ repository/
-$ rm -rf how-to-setup-github/
+cp -r how-to-setup-github/ repository/
+rm -rf how-to-setup-github/
 ```
 
 ### Remove and Reconnect to remote repository
 ```bash
-$ git remote remove origin
-$ git remote -r
+git remote remove origin
+git remote -r
 
-$ git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
-$ git remote -r
+git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
+git remote -r
 ```
 
 ### Delete branch & remote branch
