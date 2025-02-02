@@ -1,290 +1,251 @@
-# How to setup github for myPC
+# GitHub Setup Guide for Windows (Git Bash)
 
-```sh
-$ ll
-total 4
-drwxr-xr-x  2 root root    6 Sep  8 07:48 downloads
-drwxr-xr-x  2 root root    6 Sep  8 07:48 data
-drwxr-xr-x  2 root root    6 Sep  8 07:48 certs
-drwxr-xr-x  2 root root    6 Sep  8 07:48 auth
-drwxr-xr-x  6 root root   60 Sep  8 07:48 .
-```
+This guide provides a structured walkthrough to set up GitHub on your PC using Git Bash.
 
+---
 
-```{ .git .copy title="mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING"}
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ cat ~/.bash_profile
-export MY_PATH="/c/Users/mifta/OneDrive - IBM/IBM/LEARNING"
-alias mydir='cd "$MY_PATH"
+## 📑 Table of Contents
+1. [Bash Profile Configuration](#-8-bash-profile-configuration)
+2. [Prerequisites](#-prerequisites)
+3. [Configuring Git](#-1-configuring-git)
+4. [Setting Up SSH for GitHub](#-2-setting-up-ssh-for-github)
+5. [Repository Setup](#-3-repository-setup)
+6. [Branching and Merging](#-4-branching-and-merging)
+7. [Using GitHub CLI (Optional)](#-5-using-github-cli-optional)
+8. [Troubleshooting Common Issues](#-6-troubleshooting-common-issues)
+9. [Helpful Commands](#-7-helpful-commands)
+10. [Conclusion](#-conclusion)
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ git --version
-git version 2.47.1.windows.1
+---
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ git config --global user.name "miftah-ahmad-choiri"
+## 📋 Prerequisites
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ git config --global user.email "miftahcoiri354@gmail.com"
+- **Git** installed: [Download Git](https://git-scm.com/downloads)
+- **GitHub account** created: [Sign up](https://github.com/join)
+- **GitHub CLI** (optional for advanced features): [Download GitHub CLI](https://cli.github.com/)
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ git config --list
-diff.astextplain.textconv=astextplain
-filter.lfs.clean=git-lfs clean -- %f
-filter.lfs.smudge=git-lfs smudge -- %f
-filter.lfs.process=git-lfs filter-process
-filter.lfs.required=true
-http.sslbackend=openssl
-http.sslcainfo=C:/Program Files/Git/mingw64/etc/ssl/certs/ca-bundle.crt
-core.autocrlf=true
-core.fscache=true
-core.symlinks=false
-pull.rebase=false
-credential.helper=manager
-credential.https://dev.azure.com.usehttppath=true
-init.defaultbranch=master
-user.name=miftah-ahmad-choiri
-user.email=miftahcoiri354@gmail.com
+---
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ ssh-keygen -t ed25519 -C "miftahcoiri354@gmail.com"
-Generating public/private ed25519 key pair.
-Enter file in which to save the key (/c/Users/mifta/.ssh/id_ed25519): 
-Enter passphrase for "/c/Users/mifta/.ssh/id_ed25519" (empty for no passphrase):
-Enter same passphrase again: 
-Your identification has been saved in /c/Users/mifta/.ssh/id_ed25519
-Your public key has been saved in /c/Users/mifta/.ssh/id_ed25519.pub    
-The key fingerprint is:
-SHA256:Ykz9mrMUfVzGft+KrmnDWGFfu/ra6xDY3lEahjR3Cm0 miftahcoiri354@gmail.com
-The key's randomart image is:
-+--[ED25519 256]--+
-|            +.. .|
-|       .   . *Eo |
-|      . .   ..B .|
-|     o   oo+ =.+ |
-|      + S.+o=.+..|
-|     . . +.o.o.oo|
-|        =+  o ..o|
-|       ..o+. +.. |
-|        ..o+==*. |
-+----[SHA256]-----+
+## 📄 0. Bash Profile Configuration
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ eval "$(ssh-agent -s)"
-Agent pid 648
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ ssh-add ~/.ssh/id_ed25519
-Identity added: /c/Users/mifta/.ssh/id_ed25519 (miftahcoiri354@gmail.com)
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ cat ~/.ssh/id_ed25519.pub
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMu6xKmYHzgM+cXqrrr7UsUJBje2bJluJNzthtMGWxRw miftahcoiri354@gmail.com
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ ssh -T git@github.com
-The authenticity of host 'github.com (20.205.243.166)' can't be established.
-ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
-git@github.com: Permission denied (publickey).
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ ssh -T git@github.com
-Hi miftah-ahmad-choiri! You've successfully authenticated, but GitHub does not provide shell access.
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ cd github/how-to-setup-github/
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git init
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github/how-to-setup-github (main)
-$ git status
-On branch main
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)   
-        how-to-setup-github.md
-
-nothing added to commit but untracked files present (use "git add" to track)
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git add how-to-setup-github.md 
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git commit -m "second commit"
-[main 9ec9931] second commit
- 1 file changed, 88 insertions(+)
- create mode 100644 how-to-setup-github.md
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git status
-On branch main
-nothing to commit, working tree clean
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
-error: remote origin already exists.
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git push -u origin main
-ERROR: Repository not found.
-fatal: Could not read from remote repository.
-
-Please make sure you have the correct access rights
-and the repository exists.
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ gh --version
-bash: gh: command not found
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ "/c/Program Files/GitHub CLI/gh.exe" --version
-gh version 2.66.1 (2025-01-31)
-https://github.com/cli/cli/releases/tag/v2.66.1
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ vi ~/.bash_profile
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ gh --version
-bash: gh: command not found
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ source ~/.bash_profile
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ gh --version
-gh version 2.66.1 (2025-01-31)
-https://github.com/cli/cli/releases/tag/v2.66.1
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
+```bash
 $ cat ~/.bash_profile
 export MY_PATH="/c/Users/mifta/OneDrive - IBM/IBM/LEARNING"
 alias mydir='cd "$MY_PATH"'
 export PATH=$PATH:/c/Program\ Files/GitHub\ CLI
 
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ gh repo view --web
-To get started with GitHub CLI, please run:  gh auth login
-Alternatively, populate the GH_TOKEN environment variable with a GitHub API authentication token.
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ gh auth login
-? Where do you use GitHub? GitHub.com
-? What is your preferred protocol for Git operations on this host? SSH
-? Upload your SSH public key to your GitHub account? C:\Users\mifta\.ssh\id_ed25519.pub
-? Title for your SSH key: (GitHub CLI)
-
-? Title for your SSH key: GitHub CLI
-? How would you like to authenticate GitHub CLI? Login with a web browser
-
-! First copy your one-time code: A914-4CC7
-Press Enter to open https://github.com/login/device in your browser...
-✓ Authentication complete.
-- gh config set -h github.com git_protocol ssh
-✓ Configured git protocol
-✓ SSH key already existed on your GitHub account: C:\Users\mifta\.ssh\id_ed25519.pub
-✓ Logged in as miftah-ahmad-choiri
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
-$ gh repo view --web
-failed to run git: fatal: not a git repository (or any of the parent directories): .git
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ gh repo view --web
-GraphQL: Could not resolve to a Repository with the name 'miftah-ahmad-choiri/how-to-setup-github'. (repository)
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ gh repo list
-
-Showing 3 of 3 repositories in @miftah-ahmad-choiri
-
-NAME                                     DESCRIPTION                              INFO     UPDATED                                                                                                                                                    
-miftah-ahmad-choiri/skills-github-pages  My clone repository for github pages     public   about 2 hours ago
-miftah-ahmad-choiri/skills-introduct...  My clone repository                      private  about 15 hours ago
-miftah-ahmad-choiri/miftah-ahmad-choiri  My personal repository to introducin...  public   about 16 hours ago
-
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ gh repo create how-to-setup-github --public --source=. --remote=origin --push
-✓ Created repository miftah-ahmad-choiri/how-to-setup-github on GitHub
-  https://github.com/miftah-ahmad-choiri/how-to-setup-github
-X Unable to add remote "origin"
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git remote -v
-origin  git@github.com:miftah-ahmad-choiri/how-to-setup-github.git (fetch)
-origin  git@github.com:miftah-ahmad-choiri/how-to-setup-github.git (push)
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git remote remove origin
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git remote -v
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git push -u origin main
-Enumerating objects: 6, done.
-Counting objects: 100% (6/6), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (6/6), 1.72 KiB | 1.72 MiB/s, done.
-Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-To github.com:miftah-ahmad-choiri/how-to-setup-github.git
- * [new branch]      main -> main
-branch 'main' set up to track 'origin/main'.
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ gh repo list
-
-Showing 4 of 4 repositories in @miftah-ahmad-choiri
-
-NAME                                     DESCRIPTION                              INFO     UPDATED           
-miftah-ahmad-choiri/how-to-setup-github                                           public   about 1 minute ago
-miftah-ahmad-choiri/skills-github-pages  My clone repository for github pages     public   about 2 hours ago 
-miftah-ahmad-choiri/skills-introduct...  My clone repository                      private  about 15 hours ago
-miftah-ahmad-choiri/miftah-ahmad-choiri  My personal repository to introducin...  public   about 16 hours ago
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ gh repo view --web
-Opening https://github.com/miftah-ahmad-choiri/how-to-setup-github in your browser.
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git status
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   how-to-setup-github.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git add how-to-setup-github.md 
-
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git commit -m "third commit"
-[main b9795e6] third commit
- 1 file changed, 154 insertions(+), 1 deletion(-)
-
-mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
-$ git push -u origin main
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 2.98 KiB | 2.98 MiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-To github.com:miftah-ahmad-choiri/how-to-setup-github.git
-   9ec9931..b9795e6  main -> main
-branch 'main' set up to track 'origin/main'.
+$ source ~/.bash_profile
 ```
+
+This configuration sets a custom path environment and alias for easier navigation and ensures the GitHub CLI is accessible from Git Bash.
+
+
+---
+
+## 🚀 1. Configuring Git
+
+### Check Git Version
+
+```bash
+git --version
+```
+
+Ensure Git is installed correctly.
+
+### Set Global Git Configuration
+
+```bash
+git config --global user.name "miftah-ahmad-choiri"
+git config --global user.email "miftahcoiri354@gmail.com"
+```
+
+Verify settings:
+
+```bash
+git config --list
+```
+
+---
+
+## 🔐 2. Setting Up SSH for GitHub
+
+### Generate SSH Key
+
+```bash
+ssh-keygen -t ed25519 -C "miftahcoiri354@gmail.com"
+```
+
+Press Enter to accept defaults and optionally set a passphrase.
+
+### Start SSH Agent
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+### Add SSH Key to Agent
+
+```bash
+ssh-add ~/.ssh/id_ed25519
+```
+
+### Add SSH Key to GitHub
+
+1. Display the public key:
+   ```bash
+   cat ~/.ssh/id_ed25519.pub
+   ```
+2. Copy the key.
+3. Go to **GitHub → Settings → SSH and GPG keys → New SSH key**.
+4. Paste the key and save.
+
+### Test SSH Connection
+
+```bash
+ssh -T git@github.com
+```
+
+Successful output:
+
+```bash
+Hi miftah-ahmad-choiri! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+---
+
+## 📦 3. Repository Setup
+
+### Initialize a New Git Repository
+
+```bash
+cd ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github/
+git init
+```
+
+### Add and Commit Files
+
+```bash
+git add how-to-setup-github.md
+git commit -m "Initial commit"
+```
+
+### Add Remote Repository
+
+```bash
+git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
+```
+
+### Push to GitHub
+
+```bash
+git push -u origin main
+```
+
+---
+
+## 🗂️ 4. Branching and Merging
+
+### Create and Switch to a New Branch
+
+```bash
+git checkout -b edit-readme
+```
+
+### Push the Branch to GitHub
+
+```bash
+git push -u origin edit-readme
+```
+
+### Merge Changes into Main Branch
+
+```bash
+git checkout main
+git merge edit-readme
+git push origin main
+```
+
+---
+
+## ⚙️ 5. Using GitHub CLI (Optional)
+
+### Verify GitHub CLI Installation
+
+```bash
+gh --version
+```
+
+### Authenticate with GitHub
+
+```bash
+gh auth login
+```
+
+Follow the prompts to authenticate via browser.
+
+### Create Repository Using GitHub CLI
+
+```bash
+gh repo create how-to-setup-github --public --source=. --remote=origin --push
+```
+
+### Open Repository in Browser
+
+```bash
+gh repo view --web
+```
+
+---
+
+## 📝 6. Troubleshooting Common Issues
+
+- **Repository Not Found:**
+
+  ```bash
+  ERROR: Repository not found.
+  ```
+
+  **Fix:** Verify repository URL and access permissions.
+
+- **Remote Already Exists:**
+
+  ```bash
+  error: remote origin already exists.
+  ```
+
+  **Fix:** Remove existing remote and add again:
+
+  ```bash
+  git remote remove origin
+  git remote add origin git@github.com:USERNAME/REPO.git
+  ```
+
+---
+
+## 💡 7. Helpful Commands
+
+- List branches:
+  ```bash
+  git branch -a
+  ```
+- Check remote repositories:
+  ```bash
+  git remote -v
+  ```
+- View repository list:
+  ```bash
+  gh repo list
+  ```
+
+
+---
+
+## ✅ Conclusion
+
+This guide covers the end-to-end process of setting up GitHub on your PC, configuring Git, managing SSH keys, creating repositories, and working with branches. For more details, refer to [GitHub Docs](https://docs.github.com/).
+
+---
+
+**Author:** *Miftah Ahmad Choiri*  
+**Last Updated:** *2025-02-01*
+

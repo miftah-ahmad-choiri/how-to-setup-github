@@ -1,11 +1,14 @@
 # How to setup github for myPC
 
-```{ .git .copy title="mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING"}
+
+## 
+```sh
 mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
 $ cat ~/.bash_profile
 export MY_PATH="/c/Users/mifta/OneDrive - IBM/IBM/LEARNING"
 alias mydir='cd "$MY_PATH"
-
+```
+```sh
 mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING
 $ git --version
 git version 2.47.1.windows.1
@@ -276,4 +279,58 @@ Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 To github.com:miftah-ahmad-choiri/how-to-setup-github.git
    9ec9931..b9795e6  main -> main
 branch 'main' set up to track 'origin/main'.
+```
+
+```sh
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git checkout -b edit-readme
+Switched to a new branch 'edit-readme'
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (edit-readme)
+$ git status
+On branch edit-readme
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (edit-readme)
+$ git push -u origin edit-readme
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'edit-readme' on GitHub by visiting:
+remote:      https://github.com/miftah-ahmad-choiri/how-to-setup-github/pull/new/edit-readme
+remote:
+To github.com:miftah-ahmad-choiri/how-to-setup-github.git
+ * [new branch]      edit-readme -> edit-readme
+branch 'edit-readme' set up to track 'origin/edit-readme'.
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (edit-readme)
+$ git branch
+* edit-readme
+  main
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (edit-readme)
+$ git branch -r
+  origin/edit-readme
+  origin/main
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (edit-readme)
+$ git checkout main
+M       README.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git branch
+  edit-readme
+* main
+
+mifta@Miftah-PC MINGW64 ~/OneDrive - IBM/IBM/LEARNING/github/how-to-setup-github (main)
+$ git checkout edit-readme
+M       README.md
+Switched to branch 'edit-readme'
+Your branch is up to date with 'origin/edit-readme'.
 ```
