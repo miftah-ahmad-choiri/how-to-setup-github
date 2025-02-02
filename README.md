@@ -3,18 +3,42 @@
 This guide provides a structured walkthrough to set up GitHub on your PC using Git Bash.
 
 ---
-
 ## 📑 Table of Contents
-1. [Bash Profile Configuration](#-8-bash-profile-configuration)
-2. [Prerequisites](#-prerequisites)
-3. [Configuring Git](#-1-configuring-git)
-4. [Setting Up SSH for GitHub](#-2-setting-up-ssh-for-github)
-5. [Repository Setup](#-3-repository-setup)
-6. [Branching and Merging](#-4-branching-and-merging)
-7. [Using GitHub CLI (Optional)](#-5-using-github-cli-optional)
-8. [Troubleshooting Common Issues](#-6-troubleshooting-common-issues)
-9. [Helpful Commands](#-7-helpful-commands)
-10. [Conclusion](#-conclusion)
+<!-- TOC -->
+
+- [GitHub Setup Guide for Windows (Git Bash)](#github-setup-guide-for-windows-git-bash)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [📋 Prerequisites](#-prerequisites)
+  - [📄 0. Bash Profile Configuration](#-0-bash-profile-configuration)
+  - [🚀 1. Configuring Git](#-1-configuring-git)
+    - [Check Git Version](#check-git-version)
+    - [Set Global Git Configuration](#set-global-git-configuration)
+  - [🔐 2. Setting Up SSH for GitHub](#-2-setting-up-ssh-for-github)
+    - [Generate SSH Key](#generate-ssh-key)
+    - [Start SSH Agent](#start-ssh-agent)
+    - [Add SSH Key to Agent](#add-ssh-key-to-agent)
+    - [Add SSH Key to GitHub](#add-ssh-key-to-github)
+    - [Test SSH Connection](#test-ssh-connection)
+  - [📦 3. Repository Setup](#-3-repository-setup)
+    - [Initialize a New Git Repository](#initialize-a-new-git-repository)
+    - [Add and Commit Files](#add-and-commit-files)
+    - [Add Remote Repository](#add-remote-repository)
+    - [Push to GitHub](#push-to-github)
+  - [🗂️ 4. Branching and Merging](#️-4-branching-and-merging)
+    - [Create and Switch to a New Branch](#create-and-switch-to-a-new-branch)
+    - [Push the Branch to GitHub](#push-the-branch-to-github)
+    - [Merge Changes into Main Branch](#merge-changes-into-main-branch)
+  - [⚙️ 5. Using GitHub CLI (Optional)](#️-5-using-github-cli-optional)
+    - [Verify GitHub CLI Installation](#verify-github-cli-installation)
+    - [Authenticate with GitHub](#authenticate-with-github)
+    - [Create Repository Using GitHub CLI](#create-repository-using-github-cli)
+    - [Open Repository in Browser](#open-repository-in-browser)
+  - [📝 6. Troubleshooting Common Issues](#-6-troubleshooting-common-issues)
+  - [💡 7. Helpful Commands](#-7-helpful-commands)
+  - [✅ Conclusion](#-conclusion)
+
+<!-- /TOC -->
+
 
 ---
 
