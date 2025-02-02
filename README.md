@@ -25,7 +25,9 @@ This guide provides a structured walkthrough to set up GitHub on your PC using G
     - [Add Remote Repository](#add-remote-repository)
     - [Push to GitHub](#push-to-github)
     - [Push an existing repository from the command line](#push-an-existing-repository-from-the-command-line)
-  - [🗂️ 4. Branching and Merging](#️-4-branching-and-merging)
+  - [🔄 4. Pull Existing Repository](#-4-pull-existing-repository)
+    - [Pull existing repository to local](#pull-existing-repository-to-local)
+  - [🗂️ 5. Branching and Merging](#️-5-branching-and-merging)
     - [Create and Switch to a New Branch](#create-and-switch-to-a-new-branch)
     - [Push the Branch to GitHub](#push-the-branch-to-github)
     - [Merge Changes into Main Branch](#merge-changes-into-main-branch)
@@ -33,13 +35,13 @@ This guide provides a structured walkthrough to set up GitHub on your PC using G
     - [Remove and Reconnect to remote repository](#remove-and-reconnect-to-remote-repository)
     - [Delete branch \& remote branch](#delete-branch--remote-branch)
     - [Verify branch](#verify-branch)
-  - [⚙️ 5. Using GitHub CLI (Optional)](#️-5-using-github-cli-optional)
+  - [⚙️ 6. Using GitHub CLI (Optional)](#️-6-using-github-cli-optional)
     - [Verify GitHub CLI Installation](#verify-github-cli-installation)
     - [Authenticate with GitHub](#authenticate-with-github)
     - [Create Repository Using GitHub CLI](#create-repository-using-github-cli)
     - [Open Repository in Browser](#open-repository-in-browser)
-  - [📝 6. Troubleshooting Common Issues](#-6-troubleshooting-common-issues)
-  - [💡 7. Helpful Commands](#-7-helpful-commands)
+  - [📝 7. Troubleshooting Common Issues](#-7-troubleshooting-common-issues)
+  - [💡 8. Helpful Commands](#-8-helpful-commands)
   - [✅ Conclusion](#-conclusion)
 
 <!-- /TOC -->
@@ -179,10 +181,21 @@ git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github-pag
 git branch -M main
 git push -u origin main
 ```
+---
+
+## 🔄 4. Pull Existing Repository
+
+### Pull existing repository to local
+
+```bash
+git pull main origin
+# or
+git pull git@github.com:miftah-ahmad-choiri/how-to-setup-github-pages.git
+```
 
 ---
 
-## 🗂️ 4. Branching and Merging
+## 🗂️ 5. Branching and Merging
 
 ### Create and Switch to a New Branch
 
@@ -234,7 +247,7 @@ git branch -r
 
 ---
 
-## ⚙️ 5. Using GitHub CLI (Optional)
+## ⚙️ 6. Using GitHub CLI (Optional)
 
 ### Verify GitHub CLI Installation
 
@@ -264,7 +277,7 @@ gh repo view --web
 
 ---
 
-## 📝 6. Troubleshooting Common Issues
+## 📝 7. Troubleshooting Common Issues
 
 - **Repository Not Found:**
 
@@ -289,7 +302,7 @@ gh repo view --web
 
 ---
 
-## 💡 7. Helpful Commands
+## 💡 8. Helpful Commands
 
 - List branches:
   ```bash
