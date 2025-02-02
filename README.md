@@ -169,6 +169,10 @@ git commit -m "Initial commit"
 git branch -M main
 git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
 ```
+```bash
+gh auth login
+gh repo create how-to-setup-github --public --source=. --remote=origin --push
+```
 
 ### Push to GitHub
 
