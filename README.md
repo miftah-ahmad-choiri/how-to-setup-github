@@ -163,6 +163,7 @@ git commit -m "Initial commit"
 ### Add Remote Repository
 
 ```bash
+git branch -M main
 git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
 ```
 
