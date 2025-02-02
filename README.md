@@ -177,7 +177,7 @@ git push -u origin main
 ```
 ### Push an existing repository from the command line
 ```bash
-git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github-pages.git
+git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
 git branch -M main
 git push -u origin main
 ```
@@ -190,7 +190,7 @@ git push -u origin main
 ```bash
 git pull main origin
 # or
-git pull git@github.com:miftah-ahmad-choiri/how-to-setup-github-pages.git
+git pull git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
 ```
 
 ---
