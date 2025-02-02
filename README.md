@@ -24,6 +24,7 @@ This guide provides a structured walkthrough to set up GitHub on your PC using G
     - [Add and Commit Files](#add-and-commit-files)
     - [Add Remote Repository](#add-remote-repository)
     - [Push to GitHub](#push-to-github)
+    - [Push an existing repository from the command line](#push-an-existing-repository-from-the-command-line)
   - [🗂️ 4. Branching and Merging](#️-4-branching-and-merging)
     - [Create and Switch to a New Branch](#create-and-switch-to-a-new-branch)
     - [Push the Branch to GitHub](#push-the-branch-to-github)
@@ -170,6 +171,12 @@ git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
 ### Push to GitHub
 
 ```bash
+git push -u origin main
+```
+### Push an existing repository from the command line
+```bash
+git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github-pages.git
+git branch -M main
 git push -u origin main
 ```
 
