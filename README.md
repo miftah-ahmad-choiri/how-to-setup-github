@@ -245,6 +245,7 @@ git push -u origin main
 ### Pull existing repository to local
 
 ```bash
+git remote add origin git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
 git pull origin main
 # or
 git pull git@github.com:miftah-ahmad-choiri/how-to-setup-github.git
@@ -305,6 +306,14 @@ git push origin --delete edit-readme
 ```bash
 git branch
 git branch -r
+```
+### Safely Delete .git directory
+```bash
+# remove .git file from repo directory
+cd how-to-setup-github
+rm -rf .git
+cd ..
+rm -rf how-to-setup-github
 ```
 
 ---
