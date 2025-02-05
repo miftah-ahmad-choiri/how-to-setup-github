@@ -35,13 +35,15 @@ This guide provides a structured walkthrough to set up GitHub on your PC using G
     - [Remove and Reconnect to remote repository](#remove-and-reconnect-to-remote-repository)
     - [Delete branch \& remote branch](#delete-branch--remote-branch)
     - [Verify branch](#verify-branch)
+    - [Safely Delete .git directory](#safely-delete-git-directory)
   - [⚙️ 6. Using GitHub CLI (Optional)](#️-6-using-github-cli-optional)
     - [Verify GitHub CLI Installation](#verify-github-cli-installation)
     - [Authenticate with GitHub](#authenticate-with-github)
     - [Create Repository Using GitHub CLI](#create-repository-using-github-cli)
     - [Open Repository in Browser](#open-repository-in-browser)
-  - [📝 7. Troubleshooting Common Issues](#-7-troubleshooting-common-issues)
-  - [💡 8. Helpful Commands](#-8-helpful-commands)
+  - [📦 7. Release code \& tagging](#-7-release-code--tagging)
+  - [📝 8. Troubleshooting Common Issues](#-8-troubleshooting-common-issues)
+  - [💡 9. Helpful Commands](#-9-helpful-commands)
   - [✅ Conclusion](#-conclusion)
 
 <!-- /TOC -->
@@ -345,10 +347,45 @@ gh repo create how-to-setup-github --public --source=. --remote=origin --push
 ```bash
 gh repo view --web
 ```
-
 ---
 
-## 📝 7. Troubleshooting Common Issues
+## 📦 7. Release code & tagging
+
+**Create a Release Tag**
+```bash
+git tag -a v0.1.0 -m "Release version 0.1.0"
+git push origin v0.1.0
+```
+**Zip file except .git**
+```bash
+cd how-to-setup-github
+sudo zip -r ../public/releases/how-to-setup-github.zip . -x ".git/*"
+```
+**How to unzip**
+```bash
+cd ../public/releases/how-to-setup-github.zip
+unzip how-to-setup-github.zip -d how-to-setup-github
+```
+**Upload .zip file to release repo**
+```bash
+git status
+git add .
+git commit -m 'ready to publish release v.0.1.0'
+git push -u origin main
+gh auth login
+# make sure you commit and push your latest code before publish release
+gh release create v0.1.0 --title "Release v0.1.0" --notes "Initial release notes."
+# or upload it manually to release version v0.1.0
+gh release upload v0.1.0 ../public/releases/how-to-setup-github.zip
+```
+**Remove a release from github repo**
+```bash
+gh release list
+gh release delete v0.1.0
+```
+---
+
+## 📝 8. Troubleshooting Common Issues
 
 - **Repository Not Found:**
 
@@ -373,7 +410,7 @@ gh repo view --web
 
 ---
 
-## 💡 8. Helpful Commands
+## 💡 9. Helpful Commands
 
 - List branches:
   ```bash
